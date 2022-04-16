@@ -17,8 +17,8 @@ def app():
         st.session_state.count = 0
 
     merchantId = st.number_input('Enter MID')
-    startTime = st.time_input("Start Time?", datetime.date(2022, 3, 1))
-    endTime = st.time_input("End Time?", datetime.date(2022, 3, 31))
+    startTime = st.date_input("Start Time?", datetime.date(2022, 3, 1))
+    endTime = st.date_input("End Time?", datetime.date(2022, 3, 31))
     submit = st.button('Submit')
 
     if submit:
