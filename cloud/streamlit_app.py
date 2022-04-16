@@ -1,5 +1,6 @@
 import streamlit as st
 from datetime import datetime
+from datetime import date
 
 def sayHello():
     st.write("hello world!")
@@ -17,8 +18,8 @@ def app():
         st.session_state.count = 0
 
     merchantId = st.number_input('Enter MID')
-    startTime = st.date_input("Start Time?", datetime.date(2022, 3, 1))
-    endTime = st.date_input("End Time?", datetime.date(2022, 3, 31))
+    startTime = st.date_input("Start Time?", date.today())
+    endTime = st.date_input("End Time?", date.today())
     submit = st.button('Submit')
 
     if submit:
