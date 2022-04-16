@@ -6,4 +6,5 @@ def app():
 
     # Upload the dataset and save as csv
     st.markdown("### Upload a csv file for analysis.")
-    
+
+app()
