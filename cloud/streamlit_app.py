@@ -11,7 +11,7 @@ def plot():
     df.index = ['pg1', 'pg2']
     
     fig, ax = plt.subplots()
-    sns.heatmap(df, ax=ax)
+    sns.heatmap(df, ax=ax, cmap="PiYG")
     st.write(fig)
 
 def app():
