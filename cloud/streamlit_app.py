@@ -1,10 +1,18 @@
 import streamlit as st
 from datetime import datetime
 from datetime import date
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
 
-def sayHello():
-    st.write("hello world!")
-
+def plot():
+    d = {'2022-02-01': [25.0, 75], '2022-02-02': [91, 92], '2022-02-03': [56, 67]}
+    df = pd.DataFrame(d)
+    df.index = ['pg1', 'pg2']
+    
+    fig, ax = plt.subplots()
+    sns.heatmap(d, ax=ax)
+    st.write(fig)
 
 def app():
     st.markdown("## Data Upload")
@@ -26,6 +34,8 @@ def app():
         st.session_state.count += 1
         st.write("running for merchantID: ", merchantId)
         st.write("running from: ", startTime, " to ", endTime)
+
+    plot()
 
 
 app()
