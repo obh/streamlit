@@ -19,7 +19,6 @@ def app():
 
     # Upload the dataset and save as csv
     st.markdown("### Upload a csv file for analysis.")
-    st.button('Say hello', on_click=sayHello)
 
     #initial setup
     if 'count' not in st.session_state:
