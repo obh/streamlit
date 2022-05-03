@@ -30,7 +30,7 @@ def plot():
 def plot2():
     df = pd.read_csv("https://raw.githubusercontent.com/obh/streamlit/main/cloud/q2.csv")
     fig, ax = plt.subplots()
-    sns.lineplot(data=df, ax=ax, x="year", y="passengers")
+    sns.lineplot(data=df, ax=ax, x="week", y="refundcount")
     st.subheader("Refunds More than 7 days")
     st.write(fig)
 
