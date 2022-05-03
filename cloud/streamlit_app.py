@@ -13,7 +13,7 @@ def plot():
     df = 100 - df
     
     fig, ax = plt.subplots()
-    palette = sns.color_palette("Blues", as_cmap=True)
+    palette = sns.color_palette("Reds", as_cmap=True)
     sns.heatmap(df, ax=ax, annot=df, cmap=palette)
     st.subheader("Failure rate for Refunds")
     st.write(fig)
