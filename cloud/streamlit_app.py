@@ -7,7 +7,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 def plot():
-    d = {'2022-02-01': [0.0, 75], '2022-02-02': [91, 92], '2022-02-03': [56, 67]}
+    d = {'2022-02-01': [0.0, 75.1283129318], '2022-02-02': [91, 92.1283129318], '2022-02-03': [56, 67.8123131231]}
     c = {'2022-02-01': [10, 175], '2022-02-02': [191, 2], '2022-02-03': [6, 6]}
     df = pd.DataFrame(d)
     countDf = pd.DataFrame(c)
@@ -16,15 +16,22 @@ def plot():
 
     #we will take inverse success rate
     df = 100 - df
-    annotDf = df.astype(str) + " (" + countDf.astype(str) + ")"
+    df_str = df.applymap(lambda x: f'{x:.0f}' if not pd.isnull(x) else '')
+    countDf_str = countDf.applymap(lambda x: f'{x:.0f}' if not pd.isnull(x) else '')
+    annotDf = df_str + " (" + countDf_str + ")"
     st.write(df)
     st.write(annotDf)
     fig, ax = plt.subplots()
     palette = sns.color_palette("Reds", as_cmap=True)
-    labels =  np.array([['A','B', 'F'],['C','D', 'E']])
     sns.heatmap(df, ax=ax, annot=annotDf, cmap=palette, fmt='')
     st.subheader("Failure rate for Refunds")
     st.write(fig)
+
+def plot2():
+    d = np.array([[17, 'cybyes', 2, 10], [17, 'cybyes', 1, 24], [17, 'yesupi', 10, 3]])
+    df = pd.DataFrame(d)
+    p = df.pivot(['mid', 'pg'], columns='refunddays')
+
 
 def app():
     st.markdown("## Data Upload")
