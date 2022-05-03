@@ -11,8 +11,8 @@ def plot():
     df.index = ['pg1', 'pg2']
     
     fig, ax = plt.subplots()
-    sns.color_palette("Blues", as_cmap=True)
-    sns.heatmap(df, ax=ax)
+    palette = sns.color_palette("Blues", as_cmap=True)
+    sns.heatmap(df, ax=ax, cmap=palette)
     st.write(fig)
 
 def app():
