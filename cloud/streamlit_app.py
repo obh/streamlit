@@ -6,12 +6,12 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 def plot():
-    d = {'2022-02-01': [25.0, 75], '2022-02-02': [91, 92], '2022-02-03': [56, 67]}
+    d = {'2022-02-01': [0.0, 75], '2022-02-02': [91, 92], '2022-02-03': [56, 67]}
     df = pd.DataFrame(d)
     df.index = ['pg1', 'pg2']
+
     #we will take inverse success rate
     df = 100 - df
-    
     fig, ax = plt.subplots()
     palette = sns.color_palette("Reds", as_cmap=True)
     sns.heatmap(df, ax=ax, annot=df, cmap=palette)
