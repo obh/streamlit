@@ -15,6 +15,7 @@ def plot():
     fig, ax = plt.subplots()
     palette = sns.color_palette("Blues", as_cmap=True)
     sns.heatmap(df, ax=ax, annot=df, cmap=palette)
+    st.write("Failure rate for Refunds")
     st.write(fig)
 
 def app():
