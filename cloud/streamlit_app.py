@@ -2,6 +2,7 @@ import streamlit as st
 from datetime import datetime
 from datetime import date
 import pandas as pd
+import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 
@@ -20,7 +21,8 @@ def plot():
     st.write(annotDf)
     fig, ax = plt.subplots()
     palette = sns.color_palette("Reds", as_cmap=True)
-    sns.heatmap(df, ax=ax, annot=annotDf, cmap=palette)
+    labels =  np.array([['A','B', 'F'],['C','D', 'E']])
+    sns.heatmap(df, ax=ax, annot=labels, cmap=palette)
     st.subheader("Failure rate for Refunds")
     st.write(fig)
 
