@@ -7,11 +7,15 @@ import matplotlib.pyplot as plt
 
 def plot():
     d = {'2022-02-01': [0.0, 75], '2022-02-02': [91, 92], '2022-02-03': [56, 67]}
+    c = {'2022-02-01': [10, 175], '2022-02-02': [191, 2], '2022-02-03': [6, 6]}
     df = pd.DataFrame(d)
+    countDf = pd.DataFrame(c)
     df.index = ['pg1', 'pg2']
+    countDf.index = ['pg1', 'pg2']
 
     #we will take inverse success rate
     df = 100 - df
+    annotDf = df.astype(str) + " (" + countDf.astype(str) + ")"
     fig, ax = plt.subplots()
     palette = sns.color_palette("Reds", as_cmap=True)
     sns.heatmap(df, ax=ax, annot=df, cmap=palette)
