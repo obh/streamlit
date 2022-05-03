@@ -18,7 +18,7 @@ def plot():
     annotDf = df.astype(str) + " (" + countDf.astype(str) + ")"
     fig, ax = plt.subplots()
     palette = sns.color_palette("Reds", as_cmap=True)
-    sns.heatmap(df, ax=ax, annot=df, cmap=palette)
+    sns.heatmap(df, ax=ax, annot=annotDf, cmap=palette)
     st.subheader("Failure rate for Refunds")
     st.write(fig)
 
