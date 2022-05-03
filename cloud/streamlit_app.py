@@ -16,6 +16,7 @@ def plot():
     #we will take inverse success rate
     df = 100 - df
     annotDf = df.astype(str) + " (" + countDf.astype(str) + ")"
+    st.write(annotDf)
     fig, ax = plt.subplots()
     palette = sns.color_palette("Reds", as_cmap=True)
     sns.heatmap(df, ax=ax, annot=annotDf, cmap=palette)
