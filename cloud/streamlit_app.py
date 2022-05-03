@@ -28,7 +28,7 @@ def plot():
     st.write(fig)
 
 def plot2():
-    df = pd.read_csv("q2.csv")
+    df = pd.read_csv("./q2.csv")
     fig, ax = plt.subplots()
     sns.lineplot(data=df, ax=ax, x="year", y="passengers")
     st.subheader("Refunds More than 7 days")
