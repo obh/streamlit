@@ -28,9 +28,11 @@ def plot():
     st.write(fig)
 
 def plot2():
-    d = np.array([[17, 'cybyes', 2, 10], [17, 'cybyes', 1, 24], [17, 'yesupi', 10, 3]])
-    df = pd.DataFrame(d)
-    p = df.pivot(['mid', 'pg'], columns='refunddays')
+    df = pd.read_csv("q2.csv")
+    fig, ax = plt.subplots()
+    sns.lineplot(data=df, ax=ax, x="year", y="passengers")
+    st.subheader("Refunds More than 7 days")
+    st.write(fig)
 
 
 def app():
@@ -53,7 +55,8 @@ def app():
         st.write("running for merchantID: ", merchantId)
         st.write("running from: ", startTime, " to ", endTime)
 
-    plot()
+    #plot()
+    plot2()
 
 
 app()
