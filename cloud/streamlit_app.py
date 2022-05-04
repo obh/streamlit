@@ -28,7 +28,7 @@ def plot():
     df_str = df.applymap(lambda x: f'{x:.0f}' if not pd.isnull(x) else '')
     countDf_str = countDf.applymap(lambda x: f'{x:.0f}' if not pd.isnull(x) else '')
     annotDf = df_str + " (" + countDf_str + ")"
-    #annotDf.style.background_gradient(cmap=cm)
+    annotDf.style.background_gradient(gmap=df)
     st.dataframe(annotDf.style.applymap(highlight_survived))
     #st.dataframe(annotDf)
 
