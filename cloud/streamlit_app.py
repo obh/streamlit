@@ -1,4 +1,5 @@
 import streamlit as st
+import math
 from datetime import datetime
 from datetime import date
 import pandas as pd
@@ -65,11 +66,13 @@ def plot3():
     fig, ax = plt.subplots()
     sns.lineplot(data=merged_df)
     plt.xticks( rotation=45, horizontalalignment='right', fontweight='light')
-    xtick_visibility(ax, 2)
+    xtick_visibility(ax, 5)
     st.write(fig)
     
 
-def xtick_visibility(ax, stepper):
+def xtick_visibility(ax, max_labels):
+    stepper =  max(1, (len(xticks) -1) / max_labels)
+    stepper = math.ceil(1, stepper) 
     xticks=ax.xaxis.get_major_ticks()
     for i in range(len(xticks)):
         if (i + 1) % stepper == 0:
