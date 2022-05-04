@@ -64,7 +64,8 @@ def app():
         st.session_state.count += 1
         st.write("running for merchantID: ", merchantId)
         st.write("running from: ", startTime, " to ", endTime)
-
+    
+    st.write("hello world!")
     plot()
     #plot2()
 
