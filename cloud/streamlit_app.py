@@ -7,7 +7,6 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 def highlight_survived(val):
-    #failure_rate = val.split(" ")[0]
     st.write(val)
     return f'background-color: green' 
 
@@ -29,7 +28,7 @@ def plot():
     countDf_str = countDf.applymap(lambda x: f'{x:.0f}' if not pd.isnull(x) else '')
     annotDf = df_str + " (" + countDf_str + ")"
     #annotDf.style.background_gradient(cmap=cm)
-    st.dataframe(annotDf.style.apply(highlight_survived))
+    st.dataframe(annotDf.style.applymap(highlight_survived))
     #st.dataframe(annotDf)
 
     #st.write(df)
