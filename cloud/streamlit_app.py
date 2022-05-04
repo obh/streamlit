@@ -7,7 +7,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 def highlight_survived(val):
-    failure_rate = val.split(" ")[0]
+    #failure_rate = val.split(" ")[0]
     return f'background-color: {color}' 
 
 def plot():
