@@ -21,12 +21,12 @@ def plot():
     #we will take inverse success rate
     df = 100 - df
     cm = sns.light_palette("green", as_cmap=True)
-    df.background_gradient(cmap=cm)
+    df.style.background_gradient(cmap=cm)
 
     df_str = df.applymap(lambda x: f'{x:.0f}' if not pd.isnull(x) else '')
     countDf_str = countDf.applymap(lambda x: f'{x:.0f}' if not pd.isnull(x) else '')
     annotDf = df_str + " (" + countDf_str + ")"
-    annotDf.background_gradient(cmap=cm)
+    annotDf.style.background_gradient(cmap=cm)
     st.dataframe(df.style.apply(highlight_survived))
 
     #st.write(df)
