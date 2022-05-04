@@ -52,7 +52,6 @@ def plot2():
 def plot3():
     df = pd.read_csv("https://raw.githubusercontent.com/obh/streamlit/main/cloud/q3.csv")
     df = df.pivot("date", columns=["age"], values="total")
-    df = df.reset_index()
     df = df.fillna(0)
     p90 = df.apply(lambda x: np.percentile(x, 90), axis=1)
     p95 = df.apply(lambda x: np.percentile(x, 95), axis=1)
