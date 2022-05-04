@@ -62,7 +62,7 @@ def plot3():
     st.dataframe(merged_df)
     fig, ax = plt.subplots()
     sns.lineplot(data=merged_df)
-    ax.set_xticklabels(merged_df.index.to_list(), rotation=40, ha="right")
+    plt.xticks( rotation=45, horizontalalignment='right', fontweight='light', fontsize='x-large')
     st.write(fig)
     
 
