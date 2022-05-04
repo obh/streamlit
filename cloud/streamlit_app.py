@@ -75,8 +75,9 @@ def xtick_visibility(ax, max_labels):
     stepper =  max(1, (len(xticks) -1) / max_labels)
     stepper = math.ceil(stepper) 
     st.write(stepper)
+    
     for i in range(len(xticks)):
-        if (i + 1) % stepper == 0:
+        if (i + 1) % stepper == 0 and stepper != 1:
             xticks[i].set_visible(False)
 
 
