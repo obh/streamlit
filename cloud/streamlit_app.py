@@ -7,11 +7,6 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 def highlight_survived(val):
-    #const getPercentToRed = (percent) => {
-    #const g = 245 - (245*percent)/100;
-    #const b = 245 - (245 * percent/100);
-    #return 'rgb(255, '+g+','+b+')';
-    
     failure_rate = int(val.split(" ")[0])
     g = 245 - (245 * failure_rate)/100
     b = 245 - (245 * failure_rate)/100
@@ -76,7 +71,7 @@ def app():
     
     st.write("hello world!")
     plot()
-    #plot2()
+    plot2()
 
 
 app()
