@@ -12,7 +12,7 @@ def highlight_survived(val):
     #const b = 245 - (245 * percent/100);
     #return 'rgb(255, '+g+','+b+')';
     
-    failure_rate = val.split(" ")[0]
+    failure_rate = int(val.split(" ")[0])
     g = 245 - (245 * failure_rate)/100
     b = 245 - (245 * failure_rate)/100
     col = "rgb(255, " + str(g) + "," + str(b) + ")"
