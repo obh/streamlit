@@ -15,7 +15,7 @@ def highlight_survived(val):
     failure_rate = val.split(" ")[0]
     g = 245 - (245 * failure_rate)/100
     b = 245 - (245 * failure_rate)/100
-    col = "rgb(255, " + g + "," + b + ")"
+    col = "rgb(255, " + str(g) + "," + str(b) + ")"
     st.write(failure_rate)
     return f'background-color: {col}' 
 
