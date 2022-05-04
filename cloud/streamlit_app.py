@@ -28,7 +28,6 @@ def plot():
     annotDf = df_str + " (" + countDf_str + ")"
     annotDf.style.background_gradient(cmap=cm)
     st.dataframe(annotDf)
-    #st.dataframe(df.style.apply(highlight_survived))
 
     #st.write(df)
     #st.write(annotDf)
