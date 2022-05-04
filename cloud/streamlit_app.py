@@ -49,6 +49,22 @@ def plot2():
     #st.subheader("Refunds More than 7 days")
     #st.write(fig)
 
+def plot3():
+    df = pd.read_csv("https://raw.githubusercontent.com/obh/streamlit/main/cloud/q3.csv")
+    df = df.pivot("date", columns=["age"], values="total")
+    df = df.reset_index()
+    f = df.fillna(0)
+    p90 = df.apply(lambda x: np.percentile(x, 90), axis=1)
+    p95= df.apply(lambda x: np.percentile(x, 95), axis=1)
+    p99 = df.apply(lambda x: np.percentile(x, 99), axis=1)
+    p99_9 = df.apply(lambda x: np.percentile(x, 99.9), axis=1) 
+    merged_df = pd.concat([p90, p95, p99, p99_9], axis = 1)
+    fig, ax = plt.subplots()
+    sns.lineplot(data=merged_df)
+    ax.set_xticklabels(ax.get_xticklabels(), rotation=40, ha="right")
+    st.write(fig)
+    
+
 
 def app():
     st.markdown("## Data Upload")
@@ -73,6 +89,7 @@ def app():
     st.write("hello world!")
     plot()
     plot2()
+    plot3()
 
 
 app()
