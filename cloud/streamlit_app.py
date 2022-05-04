@@ -59,12 +59,21 @@ def plot3():
     p99_9 = df.apply(lambda x: np.percentile(x, 99.9), axis=1) 
     merged_df = pd.concat([p90, p95, p99], axis = 1)
     merged_df.columns = ["90th percentile", "95th percentile", "99th percentile"]
+    rows = merged_df.index.to_list()
+
     st.dataframe(merged_df)
     fig, ax = plt.subplots()
     sns.lineplot(data=merged_df)
-    plt.xticks( rotation=45, horizontalalignment='right', fontweight='light', fontsize='x-large')
+    plt.xticks( rotation=45, horizontalalignment='right', fontweight='light')
+    xtick_visibility(ax, 2)
     st.write(fig)
     
+
+def xtick_visibility(ax, stepper):
+    xticks=ax.xaxis.get_major_ticks()
+    for i in range(len(xticks)):
+        if (i + 1) % stepper == 0:
+            xticks[i].set_visible(False)
 
 
 def app():
