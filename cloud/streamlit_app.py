@@ -8,7 +8,9 @@ import matplotlib.pyplot as plt
 
 def highlight_survived(val):
     #failure_rate = val.split(" ")[0]
-    return f'background-color: {color}' 
+    st.write(val)
+    return f'background-color: green' 
+
 
 def plot():
     d = {'2022-02-01': [0.0, 75.1283129318], '2022-02-02': [91, 92.1283129318], '2022-02-03': [56, 67.8123131231]}
@@ -26,8 +28,9 @@ def plot():
     df_str = df.applymap(lambda x: f'{x:.0f}' if not pd.isnull(x) else '')
     countDf_str = countDf.applymap(lambda x: f'{x:.0f}' if not pd.isnull(x) else '')
     annotDf = df_str + " (" + countDf_str + ")"
-    annotDf.style.background_gradient(cmap=cm)
-    st.dataframe(annotDf)
+    #annotDf.style.background_gradient(cmap=cm)
+    st.dataframe(annotDf.style.apply(highlight_survived))
+    #st.dataframe(annotDf)
 
     #st.write(df)
     #st.write(annotDf)
