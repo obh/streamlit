@@ -7,9 +7,17 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 def highlight_survived(val):
+    #const getPercentToRed = (percent) => {
+    #const g = 245 - (245*percent)/100;
+    #const b = 245 - (245 * percent/100);
+    #return 'rgb(255, '+g+','+b+')';
+    
     failure_rate = val.split(" ")[0]
+    g = 245 - (245 * failure_rate)/100
+    b = 245 - (245 * failure_rate)/100
+    col = "rgb(255, " + g + "," + b + ")"
     st.write(failure_rate)
-    return f'background-color: green' 
+    return f'background-color: {col}' 
 
 
 def plot():
@@ -28,10 +36,7 @@ def plot():
     df_str = df.applymap(lambda x: f'{x:.0f}' if not pd.isnull(x) else '')
     countDf_str = countDf.applymap(lambda x: f'{x:.0f}' if not pd.isnull(x) else '')
     annotDf = df_str + " (" + countDf_str + ")"
-    annotDf.style.background_gradient(gmap=df)
-    #st.dataframe(annotDf.style.applymap(highlight_survived))
-    st.dataframe(annotDf)
-    #st.dataframe(annotDf)
+    st.dataframe(annotDf.style.applymap(highlight_survived))
 
     #st.write(df)
     #st.write(annotDf)
