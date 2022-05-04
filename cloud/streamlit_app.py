@@ -57,12 +57,12 @@ def plot3():
     p95 = df.apply(lambda x: np.percentile(x, 95), axis=1)
     p99 = df.apply(lambda x: np.percentile(x, 99), axis=1)
     p99_9 = df.apply(lambda x: np.percentile(x, 99.9), axis=1) 
-    merged_df = pd.concat([p90, p95, p99, p99_9], axis = 1)
-    merged_df.columns = ["90th percentile", "95th percentile", "99th percentile", "99.9th percentile"]
+    merged_df = pd.concat([p90, p95, p99], axis = 1)
+    merged_df.columns = ["90th percentile", "95th percentile", "99th percentile"]
     st.dataframe(merged_df)
     fig, ax = plt.subplots()
     sns.lineplot(data=merged_df)
-    ax.set_xticklabels(ax.get_xticklabels(), rotation=40, ha="right")
+    ax.set_xticklabels(merged_df.index.to_list(), rotation=40, ha="right")
     st.write(fig)
     
 
