@@ -76,6 +76,7 @@ def plot3():
     total_refunds = df.sum(axis = 1)
     less_than_4days = less_than_4days.sum(axis = 1)
     percentile = less_than_4days / total_refunds
+    percentile = pd.DataFrame(percentile)
     percentile.columns = ["% processed"]
     #line_chart_series(percentile, "Day", "Completed through API")
     st.line_chart(percentile)
