@@ -79,7 +79,7 @@ def plot3():
     percentile = pd.DataFrame(percentile)
     percentile.columns = ["% processed"]
     fig, ax = plt.subplots()
-    fig = px.line(df, x='Day', y='Completed through API', markers=True)
+    fig = px.line(percentile, x='date', y='% processed', markers=True)
     st.write(fig)
         #line_chart_series(percentile, "Day", "Completed through API")
 
