@@ -68,7 +68,8 @@ def plot3():
     st.dataframe(merged_df)
     fig, ax = plt.subplots()
     fig = px.line(merged_df, y = ['90th percentile', '95th percentile', '99th percentile'], 
-            title='Refund Processing Time')
+            title='Refund Processing Time',
+            labels={"value": "Hours to Process Refund", "variable": "Thresholds"})
     st.write(fig)
 
     #now lets print the second part
