@@ -67,7 +67,7 @@ def plot3():
 
     st.dataframe(merged_df)
     fig, ax = plt.subplots()
-    fig = px.line(merged_df)
+    fig = px.line(merged_df, y = 'Hours', title='Refund Processing Time')
     st.write(fig)
 
     #now lets print the second part
@@ -79,7 +79,7 @@ def plot3():
     percentile = percentile.reset_index()
     st.dataframe(percentile)
     fig, ax = plt.subplots()
-    fig = px.area(percentile, x='date', y='% processed', markers=True)
+    fig = px.area(percentile, x='date', y='% processed', markers=True, title = 'API Refund Processing %')
     st.write(fig)
 
 
