@@ -54,10 +54,12 @@ def plot3():
     df = pd.read_csv("https://raw.githubusercontent.com/obh/streamlit/main/cloud/q3.csv")
     df = df.pivot("date", columns=["age"], values="total")
     df = df.fillna(0)
-    p90 = df.apply(lambda x: np.percentile(x, 90), axis=1)
-    p95 = df.apply(lambda x: np.percentile(x, 95), axis=1)
-    p99 = df.apply(lambda x: np.percentile(x, 99), axis=1)
-    p99_9 = df.apply(lambda x: np.percentile(x, 99.9), axis=1) 
+    less_than_4days = df[ [x for x in df.columns.to_list() if x <= 96] ]
+    more_than_1day = df[ [x for x in df.columns.to_list() if x > 24] ]
+
+    p90 = more_than_1day.apply(lambda x: np.percentile(x, 90), axis=1)
+    p95 = more_than_1day.apply(lambda x: np.percentile(x, 95), axis=1)
+    p99 = more_than_1day.apply(lambda x: np.percentile(x, 99), axis=1)
     merged_df = pd.concat([p90, p95, p99], axis = 1)
     merged_df.columns = ["90th percentile", "95th percentile", "99th percentile"]
     rows = merged_df.index.to_list()
@@ -68,6 +70,13 @@ def plot3():
     plt.xticks( rotation=45, horizontalalignment='right', fontweight='light')
     xtick_visibility(ax, 5)
     st.write(fig)
+
+    #now lets print the second part
+    total_refunds = df.sum(axis = 1)
+    less_than_4days = less_than_4days.sum(axis = 1)
+    percentile = less_than_4days / total_refunds
+    st.line_chart(percentile)
+     
     
 
 def xtick_visibility(ax, max_labels):
