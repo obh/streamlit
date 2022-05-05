@@ -78,6 +78,7 @@ def plot3():
     percentile = less_than_4days / total_refunds
     percentile = pd.DataFrame(percentile)
     percentile.columns = ["% processed"]
+    st.dataframe(percentile)
     fig, ax = plt.subplots()
     fig = px.line(percentile, x='date', y='% processed', markers=True)
     st.write(fig)
