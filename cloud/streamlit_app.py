@@ -67,9 +67,7 @@ def plot3():
 
     st.dataframe(merged_df)
     fig, ax = plt.subplots()
-    sns.lineplot(data=merged_df)
-    plt.xticks( rotation=45, horizontalalignment='right', fontweight='light')
-    xtick_visibility(ax, 5)
+    fig = px.line(merged_df)
     st.write(fig)
 
     #now lets print the second part
@@ -83,7 +81,6 @@ def plot3():
     fig, ax = plt.subplots()
     fig = px.area(percentile, x='date', y='% processed', markers=True)
     st.write(fig)
-        #line_chart_series(percentile, "Day", "Completed through API")
 
 
 def line_chart_series(data, x_axis, y_axis):
