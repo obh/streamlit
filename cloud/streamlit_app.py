@@ -77,8 +77,8 @@ def plot3():
     less_than_4days = less_than_4days.sum(axis = 1)
     percentile = less_than_4days / total_refunds
     percentile.columns = ["% processed"]
-    line_chart_series(percentile, "Day", "Completed through API")
-    #st.line_chart(percentile)
+    #line_chart_series(percentile, "Day", "Completed through API")
+    st.line_chart(percentile)
 
 def line_chart_series(data, x_axis, y_axis):
         c = alt.Chart(data).mark_line().encode(x=x_axis, y=y_axis, tooltip=[x_axis, y_axis])
