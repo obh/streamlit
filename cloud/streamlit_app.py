@@ -81,7 +81,7 @@ def plot3():
     percentile = percentile.reset_index()
     st.dataframe(percentile)
     fig, ax = plt.subplots()
-    fig = px.line(percentile, x='date', y='% processed', markers=True)
+    fig = px.area(percentile, x='date', y='% processed', markers=True)
     st.write(fig)
         #line_chart_series(percentile, "Day", "Completed through API")
 
