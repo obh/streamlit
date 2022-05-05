@@ -1,5 +1,5 @@
 import streamlit as st
-import altair as alt
+import plotly.express as px
 import math
 from datetime import datetime
 from datetime import date
@@ -78,8 +78,11 @@ def plot3():
     percentile = less_than_4days / total_refunds
     percentile = pd.DataFrame(percentile)
     percentile.columns = ["% processed"]
-    #line_chart_series(percentile, "Day", "Completed through API")
-    st.line_chart(percentile)
+    fig, ax = plt.subplots()
+    fig = px.line(df, x='Day', y='Completed through API', markers=True)
+    st.write(fig)
+        #line_chart_series(percentile, "Day", "Completed through API")
+
 
 def line_chart_series(data, x_axis, y_axis):
         c = alt.Chart(data).mark_line().encode(x=x_axis, y=y_axis, tooltip=[x_axis, y_axis])
